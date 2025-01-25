@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { useTodos } from "../../ContextApi/ContextApi";
 
 const AddTodo = () => {
-  const [todo, setTodo] = useState("");
-  const { handleAddTodo } = useTodos();
+  const [todos, setTodos] = useState("");
+
   const handleForm = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    handleAddTodo(todo);
+
     setTodo("");
 
     console.log("connect");
@@ -25,9 +24,9 @@ const AddTodo = () => {
             id="todo"
             className="bg-gray-500 placeholder:text-white px-2 py-1 rounded-md"
             type="text"
-            value={todo}
+            value={todos}
             placeholder="Enter Todo Item"
-            onChange={(e) => setTodo(e.target.value)}
+            onChange={(e) => setTodos(e.target.value)}
           />
         </div>
         <div>
