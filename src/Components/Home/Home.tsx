@@ -1,4 +1,5 @@
 import AddTodo from "../AddTodo/AddTodo";
+import TodoList from "../TodoList/TodoList";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
           Todo App
         </h1>
         <AddTodo />
+        <TodoList />
       </main>
     </div>
   );

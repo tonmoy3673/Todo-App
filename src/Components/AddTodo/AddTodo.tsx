@@ -7,8 +7,16 @@ const AddTodo = () => {
 
   const handleForm = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    handleAddTodo(todos);
-    setTodos("");
+    const form = e.currentTarget;
+    const task = form.todo.value.trim();
+    console.log(task);
+    if (task === "" || !isNaN(task)) {
+      alert("Invalid Keyword!!");
+      return;
+    } else {
+      handleAddTodo(task);
+      setTodos("");
+    }
 
     console.log("connect");
   };
@@ -24,6 +32,7 @@ const AddTodo = () => {
           </label>
           <input
             id="todo"
+            name="todo"
             className="bg-gray-500 placeholder:text-white px-2 py-1 rounded-md"
             type="text"
             value={todos}
