@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { useTodo } from "../../ContextApi/ContextApi";
 
 const AddTodo = () => {
   const [todos, setTodos] = useState("");
+  const { handleAddTodo } = useTodo();
 
   const handleForm = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-
-    setTodo("");
+    handleAddTodo(todos);
+    setTodos("");
 
     console.log("connect");
   };
